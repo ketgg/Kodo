@@ -8,7 +8,6 @@ import {
   TrendingUp,
   Trophy,
   UserIcon,
-  Zap,
 } from "lucide-react"
 import { motion } from "framer-motion"
 import { Id } from "../../../../convex/_generated/dataModel"

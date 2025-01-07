@@ -2,7 +2,7 @@ import { currentUser } from "@clerk/nextjs/server"
 import { ConvexHttpClient } from "convex/browser"
 import { api } from "../../../../convex/_generated/api"
 import Link from "next/link"
-import { Blocks, Code2, Sparkles } from "lucide-react"
+import { Blocks, Code2 } from "lucide-react"
 import { SignedIn } from "@clerk/nextjs"
 import ThemeSelector from "./ThemeSelector"
 import LanguageSelector from "./LanguageSelector"
@@ -16,6 +16,10 @@ async function Header() {
   const convexUser = await convex.query(api.users.getUser, {
     userId: user?.id || "",
   })
+
+  if (convexUser) {
+    console.log(`User ${convexUser.name} has signed in.`)
+  }
 
   return (
     <div className="relative z-10">
